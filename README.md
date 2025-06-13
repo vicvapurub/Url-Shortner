@@ -4,7 +4,7 @@
 
 This is a **MERN stack URL Shortener** project with user authentication, backend API, and a responsive frontend. Built using **MongoDB**, **Express**, **React**, and **Node.js**, it allows users to register/login and generate shortened URLs for easier sharing.
 
-###Live App 👉 [https://url-shortner-mu-three.vercel.app/]
+### Live App 👉 [https://url-shortner-mu-three.vercel.app/]
 
 ---
 
