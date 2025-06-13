@@ -1,6 +1,6 @@
 import React from 'react'
-import UrlForm from '../components/UrlForm'
-import UserUrl from '../components/UserUrl'
+import UrlForm from '../components/UrlForm.jsx'
+import UserUrl from '../components/UserUrl.jsx'
 
 const DashboardPage = () => {
   return (
