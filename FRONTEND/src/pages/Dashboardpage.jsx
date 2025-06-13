@@ -1,5 +1,5 @@
 import React from 'react'
-import UrlForm from '../components/Urlform'
+import UrlForm from '../components/UrlForm'
 import UserUrl from '../components/UserUrl'
 
 const DashboardPage = () => {
