@@ -8,18 +8,21 @@ const UserUrl = () => {
     queryFn: getAllUserUrls,
     refetchInterval: 30000, // Refetch every 30 seconds
     staleTime: 0,
+    onSuccess: (data) => {
+      console.log('URL data:', data);
+    }
   })
 
   const [copiedId, setCopiedId] = useState(null)
 
   const handleCopy = (textToCopy, id) => {
-    navigator.clipboard.writeText(textToCopy)
-    setCopiedId(id)
+    navigator.clipboard.writeText(textToCopy);
+    setCopiedId(id);
 
     setTimeout(() => {
-      setCopiedId(null)
-    }, 2000)
-  }
+      setCopiedId(null);
+    }, 2000);
+  };
 
   if (isLoading) {
     return (
@@ -86,14 +89,12 @@ const UserUrl = () => {
                   <div className="flex items-center">
                     <span className="text-sm font-medium text-blue-600">
                       <a
-                        href={url.short_url.startsWith('http') ? url.short_url : `https://your-render-backend-url.onrender.com/${url.short_url}`}
+                        href={url.short_url.includes('http') ? url.short_url : `https://url-shortner-p5t1.onrender.com/${url.short_url}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:text-blue-900 hover:underline"
                       >
-                        {url.short_url.includes('localhost') 
-                          ? url.short_url.replace('http://localhost:3000/', 'your-render-backend-url.onrender.com/') 
-                          : url.short_url}
+                        {url.short_url.includes('http') ? url.short_url : `url-shortner-p5t1.onrender.com/${url.short_url}`}
                       </a>
                     </span>
                   </div>
@@ -105,8 +106,11 @@ const UserUrl = () => {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <button
-                    onClick={() =>
-                      handleCopy(`${window.location.origin}/${url.short_url}`, url._id)
+                    onClick={() => 
+                      handleCopy(
+                        url.short_url.includes('http') ? url.short_url : `https://url-shortner-p5t1.onrender.com/${url.short_url}`, 
+                        url._id
+                      )
                     }
                     className={`inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md 
                       ${
