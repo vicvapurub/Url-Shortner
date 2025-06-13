@@ -86,12 +86,14 @@ const UserUrl = () => {
                   <div className="flex items-center">
                     <span className="text-sm font-medium text-blue-600">
                       <a
-                        href={`http://localhost:3000/${url.short_url}`}
+                        href={url.short_url.startsWith('http') ? url.short_url : `https://your-render-backend-url.onrender.com/${url.short_url}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:text-blue-900 hover:underline"
                       >
-                        {`localhost:3000/${url.short_url}`}
+                        {url.short_url.includes('localhost') 
+                          ? url.short_url.replace('http://localhost:3000/', 'your-render-backend-url.onrender.com/') 
+                          : url.short_url}
                       </a>
                     </span>
                   </div>
