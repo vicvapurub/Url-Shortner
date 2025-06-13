@@ -19,6 +19,7 @@ export const registerUser = async (name, email, password) => {
 
 export const loginUser = async (email, password) => {
   const user = await findUserByEmailByPassword(email);
+  console.log("USER FOUND:", user);
   if (!user) throw new Error("Invalid credentials");
 
   const isPasswordValid = await user.comparePassword(password);
