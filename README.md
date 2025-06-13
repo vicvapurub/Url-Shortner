@@ -7,6 +7,16 @@ This is a **MERN stack URL Shortener** project with user authentication, backend
 ### Live App 👉 [https://url-shortner-mu-three.vercel.app/]
 
 ---
+### 🎯 Features
+🔐 User Authentication: Secure login and signup using sessions/cookies.\
+🌐 URL Shortening: Convert long URLs into short, unique codes.\
+📈 Dashboard View: Users can manage and view all their shortened URLs.\
+📤 Redirect Handling: Accessing a short URL automatically redirects to the original.\
+🎨 Responsive UI: Clean, intuitive frontend built with React, Tailwind CSS, and Vite.\
+⚙️ Backend API: RESTful API built with Express.js and connected to MongoDB Atlas.\
+🔁 Session Support: Authentication state is managed via cookies (withCredentials setup).
+
+---
 
 ## 🔧 Tech Stack
 
@@ -20,7 +30,7 @@ This is a **MERN stack URL Shortener** project with user authentication, backend
 ### Backend
 - Node.js + Express.js
 - MongoDB + Mongoose
-- express-session, bcrypt, dotenv
+- express-session, bcrypt, dotenv, jwt
 - CORS with credentials setup
 
 ---
